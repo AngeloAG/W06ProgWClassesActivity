@@ -5,7 +5,7 @@ Authors: Jeffrey Meldrum
 	Alvaro Nunez
 	Logan Clark
 
-  Date:
+  Date:2/7/2023
 
   Description:
   Display the list or words and the hidden words.
@@ -19,19 +19,51 @@ Authors: Jeffrey Meldrum
   Dsiplay()
   randomlyHiddenWord():bool
 */
-
+using System;
 public class SPAMScripture
 {
-  //TODO implement attributes for words, reference and hiddenWordsAmount
-
+  List<SPAMWord> _scriputre;
+  private SPAMReference _reference;
+  private int hiddenWordAmount;
 
   //Implement constructor to initialize attributes
-  public SPAMScripture()
+  public SPAMScripture(string scriputre, SPAMReference reference)
   {
-
+    string[] _parse = scriputre.Split(' ');
+    foreach (var parse in _parse)
+    {
+      SPAMWord parse_word = new SPAMWord(parse);
+      _scriputre.Add(parse_word);  
+    }
+    _reference = reference;
   }
 
-  //TODO implement method to toString to make a string out of the attributes
-
-  //TODO implement method to know if all the words have been hidden
+  public String ToString()
+  {
+    string complete_scriputure = " ";
+    foreach (var scriputre in _scriputre)
+    {
+      complete_scriputure += scriputre;
+      complete_scriputure += " ";
+    }
+    return complete_scriputure;
+  }
+  public bool GetAreAllWordsHidden()
+  {
+    int Length_scripture = _scriputre.Count;
+    if (Length_scripture == hiddenWordAmount)
+    {
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
+  }
+  public void HideRandomWord()
+  {
+    Random r = new Random();
+    _scriputre[r.Next(0,_scriputre.Count)].changeHiddenState(false);
+  }
+  
 }
