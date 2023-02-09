@@ -27,7 +27,7 @@ public class SPAMReference
   private string _SPAMBook;
   private int _SPAMChapter;
   private int _SPAMStartVerse;
-  private int _SPAMEndVerse;
+  private int _SPAMEndVerse = 0;
 
 
   //TODO implement constructors, one that does not include endVerse and other
@@ -49,7 +49,13 @@ public class SPAMReference
 
   override public string ToString()
   {
-    return string.Format("{0} {1}:{2}-{3}", _SPAMBook, _SPAMChapter, _SPAMStartVerse, _SPAMStartVerse);
+
+    if (_SPAMEndVerse == 0){
+      return string.Format("{0} {1}:{2}", _SPAMBook, _SPAMChapter, _SPAMStartVerse);
+    }
+    else{
+      return string.Format("{0} {1}:{2}-{3}", _SPAMBook, _SPAMChapter, _SPAMStartVerse, _SPAMEndVerse);
+    }
   }
 
   //TODO implement method to turn attributes into string
