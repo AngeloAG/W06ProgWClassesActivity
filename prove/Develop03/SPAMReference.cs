@@ -20,7 +20,7 @@ Authors: Jeffrey Meldrum
   Behaviors:
   Display()
 */
-
+using System;
 public class SPAMReference
 {
   //TODO implement attributes to hold book, chapter, verse, and endVerse
