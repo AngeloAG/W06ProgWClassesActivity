@@ -16,6 +16,7 @@ Authors: Jeffrey Meldrum
   Behaviors:
   Loads scripture file from csv file.
 */
+using system;
 
 public class SPAMScriptureFileLoader
 {
@@ -25,5 +26,16 @@ public class SPAMScriptureFileLoader
 
   }
 
+  public string SPAMScriptureFinder(string SPAMBook, int SPAMchapter, int SPAMStartVerse, int SPAMEndVerse)
+  {
+    string SPAMFileName = ("lds-scriptures.txt");
+    string SPAMScriptureText = "";
+    string[] SPAMScripturesList = File.ReadAllLines (SPAMFileName);
+    foreach (string SPAMLine in SPAMScripturesList)
+    {
+      string[] SPAMScripture = SPAMLine.Split("\n")
+    }
+
+  }
   //TODO implement method to get scriptures from file
 }
