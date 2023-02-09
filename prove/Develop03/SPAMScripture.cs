@@ -22,7 +22,7 @@ Authors: Jeffrey Meldrum
 using System;
 public class SPAMScripture
 {
-  List<SPAMWord> _scriputre;
+  List<SPAMWord> _scriputre = new List<SPAMWord>();
   private SPAMReference _reference;
   private int hiddenWordAmount;
 
@@ -43,7 +43,7 @@ public class SPAMScripture
     string complete_scriputure = " ";
     foreach (var scriputre in _scriputre)
     {
-      complete_scriputure += scriputre;
+      complete_scriputure += scriputre.ToString();
       complete_scriputure += " ";
     }
     return complete_scriputure;
@@ -63,7 +63,7 @@ public class SPAMScripture
   public void HideRandomWord()
   {
     Random r = new Random();
-    _scriputre[r.Next(0, _scriputre.Count)].changeHiddenState(false);
+    _scriputre[r.Next(0, _scriputre.Count)].changeHiddenState(true);
   }
 
 }
