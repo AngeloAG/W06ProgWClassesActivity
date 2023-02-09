@@ -39,14 +39,16 @@ public class SPAMReference
     _SPAMStartVerse = SPAMVerse;
   }
 
-  public SPAMReference(string SPAMBook, int SPAMChapter, int SPAMVerse, int SPAMEndVerse){
+  public SPAMReference(string SPAMBook, int SPAMChapter, int SPAMVerse, int SPAMEndVerse)
+  {
     _SPAMBook = SPAMBook;
     _SPAMChapter = SPAMChapter;
     _SPAMStartVerse = SPAMVerse;
-    _SPAMEndVerse = SPAMEndVerse;   
+    _SPAMEndVerse = SPAMEndVerse;
   }
 
-  public string ToString(){
+  override public string ToString()
+  {
     return string.Format("{0} {1}:{2}-{3}", _SPAMBook, _SPAMChapter, _SPAMStartVerse, _SPAMStartVerse);
   }
 

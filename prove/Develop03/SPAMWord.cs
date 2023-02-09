@@ -23,7 +23,7 @@ public class SPAMWord
 {
   private String _wordText;
   private bool _isHidden;
-  
+
   //TODO implement attributes to hold the text of the word and 
   // the flag to know if it's hidden or not
 
@@ -36,7 +36,7 @@ public class SPAMWord
 
   }
 
-  public String ToString()
+  override public String ToString()
   {
     if (_isHidden == true)
     {

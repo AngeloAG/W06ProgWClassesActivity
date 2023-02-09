@@ -33,12 +33,12 @@ public class SPAMScripture
     foreach (var parse in _parse)
     {
       SPAMWord parse_word = new SPAMWord(parse);
-      _scriputre.Add(parse_word);  
+      _scriputre.Add(parse_word);
     }
     _reference = reference;
   }
 
-  public String ToString()
+  override public String ToString()
   {
     string complete_scriputure = " ";
     foreach (var scriputre in _scriputre)
@@ -55,7 +55,7 @@ public class SPAMScripture
     {
       return true;
     }
-    else 
+    else
     {
       return false;
     }
@@ -63,7 +63,7 @@ public class SPAMScripture
   public void HideRandomWord()
   {
     Random r = new Random();
-    _scriputre[r.Next(0,_scriputre.Count)].changeHiddenState(false);
+    _scriputre[r.Next(0, _scriputre.Count)].changeHiddenState(false);
   }
-  
+
 }
