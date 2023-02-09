@@ -40,7 +40,7 @@ public class SPAMScripture
 
   override public String ToString()
   {
-    string complete_scriputure = " ";
+    string complete_scriputure = _reference.ToString();
     foreach (var scriputre in _scriputre)
     {
       complete_scriputure += scriputre.ToString();
