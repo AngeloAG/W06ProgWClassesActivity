@@ -18,7 +18,7 @@ Authors: Jeffrey Meldrum
   Display()
   hidden
 */
-
+using System;
 public class SPAMWord
 {
   private String _wordText;
@@ -48,6 +48,12 @@ public class SPAMWord
   public void changeHiddenState(bool isHidden)
   {
     _isHidden = isHidden;
+
+  }
+
+  public bool IsHidden()
+  {
+    return _isHidden;
 
   }
 }
