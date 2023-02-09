@@ -50,4 +50,10 @@ public class SPAMWord
     _isHidden = isHidden;
 
   }
+
+  public bool IsHidden()
+  {
+    return _isHidden;
+
+  }
 }
