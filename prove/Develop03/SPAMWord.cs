@@ -18,7 +18,7 @@ Authors: Jeffrey Meldrum
   Display()
   hidden
 */
-
+using System;
 public class SPAMWord
 {
   private String _wordText;
