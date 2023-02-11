@@ -16,26 +16,33 @@ Authors: Jeffrey Meldrum
   Behaviors:
   Loads scripture file from csv file.
 */
-using system;
+using System;
 
 public class SPAMScriptureFileLoader
 {
-
+  List<string> SPAMBookTitleArray = new List<string>();
+  List<int> SPAMChapterArray = new List<int>();
+  List<int> SPAMVerseArray = new List<int>();
+  List<string> SPAMScriptureTextArray = new List<string>();
+  
   public SPAMScriptureFileLoader()
-  {
-
-  }
-
-  public string SPAMScriptureFinder(string SPAMBook, int SPAMchapter, int SPAMStartVerse, int SPAMEndVerse)
   {
     string SPAMFileName = ("lds-scriptures.txt");
     string SPAMScriptureText = "";
-    string[] SPAMScripturesList = File.ReadAllLines (SPAMFileName);
-    foreach (string SPAMLine in SPAMScripturesList)
+    string[] SPAMScriptureLines = File.ReadAllLines (SPAMFileName);
+    foreach (string SPAMScriptureLine in SPAMScriptureLines)
     {
-      string[] SPAMScripture = SPAMLine.Split("\n")
+      string[] SPAMScriptureParsed = SPAMScriptureLine.Split("|");
+      SPAMBookTitleArray.Add(SPAMScriptureParsed[0]);
+      SPAMChapterArray.Add(int.Parse(SPAMScriptureParsed[1]));
+      SPAMVerseArray.Add(int.Parse(SPAMScriptureParsed[2]));
+      SPAMScriptureTextArray.Add(SPAMScriptureParsed[3]);
     }
+  }
 
+  public string SPAMScriptureFinder(string SPAMBook, int SPAMChapter, int SPAMStartVerse, int SPAMEndVerse)
+  {
+    
   }
   //TODO implement method to get scriptures from file
 }
