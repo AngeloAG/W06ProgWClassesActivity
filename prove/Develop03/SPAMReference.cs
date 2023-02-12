@@ -5,7 +5,7 @@ Authors: Jeffrey Meldrum
 	Alvaro Nunez
 	Logan Clark
 
-  Date:
+  Date: 2/11/2023
 
   Description:
   Holds information about the book
@@ -50,10 +50,12 @@ public class SPAMReference
   override public string ToString()
   {
 
-    if (_SPAMEndVerse == 0){
+    if (_SPAMEndVerse == 0)
+    {
       return string.Format("{0} {1}:{2}", _SPAMBook, _SPAMChapter, _SPAMStartVerse);
     }
-    else{
+    else
+    {
       return string.Format("{0} {1}:{2}-{3}", _SPAMBook, _SPAMChapter, _SPAMStartVerse, _SPAMEndVerse);
     }
   }

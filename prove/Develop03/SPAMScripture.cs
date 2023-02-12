@@ -40,7 +40,7 @@ public class SPAMScripture
 
   override public String ToString()
   {
-    string complete_scriputure = _reference.ToString();
+    string complete_scriputure = _reference.ToString() + " ";
     foreach (var scriputre in _scriputre)
     {
       complete_scriputure += scriputre.ToString();
@@ -51,7 +51,7 @@ public class SPAMScripture
   public bool GetAreAllWordsHidden()
   {
     int Length_scripture = _scriputre.Count;
-    if (Length_scripture == hiddenWordAmount)
+    if (hiddenWordAmount >= Length_scripture)
     {
       return true;
     }
@@ -62,8 +62,18 @@ public class SPAMScripture
   }
   public void HideRandomWord()
   {
-    Random r = new Random();
-    _scriputre[r.Next(0, _scriputre.Count)].changeHiddenState(true);
+    bool keepTrying = true;
+    while (keepTrying)
+    {
+      Random r = new Random();
+      SPAMWord word = _scriputre[r.Next(0, _scriputre.Count)];
+      if (!word.IsHidden())
+      {
+        word.Hide();
+        keepTrying = false;
+        hiddenWordAmount++;
+      }
+    }
   }
 
 }

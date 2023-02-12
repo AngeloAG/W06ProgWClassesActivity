@@ -5,7 +5,7 @@ Authors: Jeffrey Meldrum
 	Alvaro Nunez
 	Logan Clark
 
-  Date:
+  Date:2/11/2023
 
   Description:
   Responsibilities:
@@ -26,8 +26,33 @@ class Program
 {
   static void Main(string[] args)
   {
-    SPAMReference spamReference = new SPAMReference("1 Nephi", 3, 7);
-    SPAMScripture spamScripture = new SPAMScripture("And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.", spamReference);
+    SpamTextToConsole("Welcome to the scripture memorizer");
+    SpamTextToConsole("Please enter the scripture you want to try: ");
+    SpamTextToConsole("Book (Case Sensitive) i.e. 1 Nephi: ");
+    string spamDesiredBook = SpamGetUserInput();
+    SpamTextToConsole("Chapter (Number) i.e. 3: ");
+    int spamDesiredChapter = int.Parse(SpamGetUserInput());
+    SpamTextToConsole("Start verse (Number) i.e. 7: ");
+    int spamDesiredStartVerse = int.Parse(SpamGetUserInput());
+    SpamTextToConsole("End verse (Number) i.e. 8, if not needed type 0: ");
+    int spamDesiredEndVerse = int.Parse(SpamGetUserInput());
+
+    SPAMScriptureFileLoader spamScriptureLoader = new SPAMScriptureFileLoader();
+
+    String spamScriptureText = spamScriptureLoader.SPAMScriptureFinder(spamDesiredBook, spamDesiredChapter, spamDesiredStartVerse, (spamDesiredEndVerse == 0) ? spamDesiredStartVerse : spamDesiredEndVerse);
+
+    SPAMReference spamReference;
+
+    if (spamDesiredEndVerse == 0)
+    {
+      spamReference = new SPAMReference(spamDesiredBook, spamDesiredChapter, spamDesiredStartVerse);
+    }
+    else
+    {
+      spamReference = new SPAMReference(spamDesiredBook, spamDesiredChapter, spamDesiredStartVerse, spamDesiredEndVerse);
+    }
+
+    SPAMScripture spamScripture = new SPAMScripture(spamScriptureText, spamReference);
 
     bool spamKeepPrompting = true;
 
@@ -40,8 +65,6 @@ class Program
       SpamTextToConsole(spamScriptureString);
       String spamUserInput = SpamGetUserInput();
 
-      spamScripture.HideRandomWord();
-
       if (spamUserInput == "q")
       {
         spamKeepPrompting = false;
@@ -49,6 +72,10 @@ class Program
       if (spamScripture.GetAreAllWordsHidden())
       {
         spamKeepPrompting = false;
+      }
+      else
+      {
+        spamScripture.HideRandomWord();
       }
     }
     Console.Clear();

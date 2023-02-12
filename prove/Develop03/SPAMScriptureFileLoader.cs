@@ -5,7 +5,7 @@ Authors: Jeffrey Meldrum
 	Alvaro Nunez
 	Logan Clark
 
-  Date:
+  Date: 2/11/2023
 
   Description:
   access a file that will load the scriptures into the scriputre class
@@ -25,13 +25,12 @@ public class SPAMScriptureFileLoader
   List<int> SPAMChapterList = new List<int>();
   List<int> SPAMVerseList = new List<int>();
   List<string> SPAMScriptureTextList = new List<string>();
-  
+
   public SPAMScriptureFileLoader()
   {
     // splits the scripture text file into lines and saves it inot an array
     string SPAMFileName = ("lds-scriptures.txt");
-    string SPAMScriptureText = "";
-    string[] SPAMScriptureLines = File.ReadAllLines (SPAMFileName);
+    string[] SPAMScriptureLines = File.ReadAllLines(SPAMFileName);
     // goes through each line in the text file and saves the book title, verse, and text into their corresponding lists established at the beginning of the class
     foreach (string SPAMScriptureLine in SPAMScriptureLines)
     {
@@ -50,7 +49,7 @@ public class SPAMScriptureFileLoader
     int SPAMVerseLoader = SPAMStartVerse;
 
     // gets all the verses that the user requires and loads them into a list
-    while (SPAMVerseLoader != SPAMEndVerse+1)
+    while (SPAMVerseLoader != SPAMEndVerse + 1)
     {
       SPAMUserVerseList.Add(SPAMVerseLoader);
       SPAMVerseLoader++;
@@ -58,7 +57,7 @@ public class SPAMScriptureFileLoader
 
     // code that checks the users input with every scriputre and gets the desired scripture text
     int i = 0;
-    string SPAMDesiredScriptureText ="";
+    string SPAMDesiredScriptureText = "";
     foreach (string SPAMBookTitle in SPAMBookTitleList)
     {
       if (SPAMBook == SPAMBookTitleList[i] && SPAMChapter == SPAMChapterList[i])
@@ -67,7 +66,7 @@ public class SPAMScriptureFileLoader
         {
           if (SPAMVerse == SPAMVerseList[i])
           {
-            SPAMDesiredScriptureText = SPAMDesiredScriptureText + "\n" +" " +SPAMVerseList[i] + " " + SPAMScriptureTextList[i].Trim();
+            SPAMDesiredScriptureText = SPAMDesiredScriptureText + "\n" + " " + SPAMVerseList[i] + " " + SPAMScriptureTextList[i].Trim();
           }
         }
       }

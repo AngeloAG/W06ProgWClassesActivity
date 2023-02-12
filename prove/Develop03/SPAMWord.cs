@@ -45,12 +45,16 @@ public class SPAMWord
 
   }
 
-  public void changeHiddenState(bool isHidden)
+  public void ChangeHiddenState(bool isHidden)
   {
     _isHidden = isHidden;
 
   }
 
+  public void Hide()
+  {
+    _isHidden = true;
+  }
   public bool IsHidden()
   {
     return _isHidden;
