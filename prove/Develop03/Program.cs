@@ -63,6 +63,7 @@ class Program
       SpamTextToConsole("Try to memorize this scripture.\n");
       String spamScriptureString = spamScripture.ToString();
       SpamTextToConsole(spamScriptureString);
+      SpamTextToConsole("\n\n Type q to quit");
       String spamUserInput = SpamGetUserInput();
 
       if (spamUserInput == "q")
